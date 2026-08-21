@@ -1,0 +1,5 @@
+#pasta de dependências do node
+node_modules/
+
+#variáveis de ambiente
+.env

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Helpdesk</title>
+  </head>
+  <body>
+    <header>
+      <button id="btn-mobile" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="logo">Helpdesk</div>
+      <div class="usuario">
+        <button id="profile-icon-btn">
+          <img src="assets/imagens/icon-user.png" alt="icon user" />
+        </button>
+
+        <ul id="dropdown-list" class="hide">
+          <li><button id="open-login-btn">Login</button></li>
+          <li><button id="open-register-btn">Registro</button></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <aside class="sidebar" id="sidebar">
+        <nav>
+          <ul class="menu">
+            <li class="menu-item"><a href="/">Dashboard</a></li>
+            <li class="menu-item"><a href="/">Chamados</a></li>
+            <li class="menu-item"><a href="/">Usuários</a></li>
+            <li class="menu-item"><a href="/">Categorias</a></li>
+            <li class="menu-item"><a href="/">Configurações</a></li>
+          </ul>
+        </nav>
+
+        <button id="new-ticket-btn" class="new-ticket">Novo Chamado</button>
+      </aside>
+
+      <div class="overlay">j</div>
+
+      <section class="dashboard">
+        <h1>Dashboard</h1>
+        <div class="tickets">
+          <div class="ticket-card">
+            <span>Chamados Abertos</span>
+            <strong>12</strong>
+          </div>
+          <div class="ticket-card">
+            <span>Chamados Em Andamento</span>
+            <strong>5</strong>
+          </div>
+          <div class="ticket-card">
+            <span>Chamados Resolvidos</span>
+            <strong>20</strong>
+          </div>
+        </div>
+
+        <div class="chamados-lista">
+          <h2>Chamados Recentes</h2>
+
+          <div class="chamados-scroll">
+            <ul class="chamados">
+              <li class="chamado-item">
+                <div class="card-header">
+                  <span class="num-ticket">#00001</span>
+                  <span class="loja-ticket">Loja 1</span>
+                  <span class="prior-ticket">Médio</span>
+                </div>
+
+                <div class="chamado-conteudo">
+                  <h3>Meu computador não está ligando!</h3>
+                </div>
+
+                <div class="chamado-footer">
+                  <div class="analista-ticket">
+                    <h3>Analista:</h3>
+                    <p>David Prestes</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="chamado-item">
+                <div class="card-header">
+                  <span class="num-ticket">#00001</span>
+                  <span class="loja-ticket">Loja 2</span>
+                  <span class="prior-ticket">Médio</span>
+                </div>
+
+                <div class="chamado-conteudo">
+                  <h3>Meu computador está sem rede</h3>
+                </div>
+
+                <div class="chamado-footer">
+                  <div class="analista-ticket">
+                    <h3>Analista:</h3>
+                    <p>David Prestes</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="chamado-item">
+                <div class="card-header">
+                  <span class="num-ticket">#00001</span>
+                  <span class="loja-ticket">Loja 1</span>
+                  <span class="prior-ticket">Médio</span>
+                </div>
+
+                <div class="chamado-conteudo">
+                  <h3>Impressora parou!</h3>
+                </div>
+
+                <div class="chamado-footer">
+                  <div class="analista-ticket">
+                    <h3>Analista:</h3>
+                    <p>David Prestes</p>
+                  </div>
+                </div>
+              </li>
+              <li class="chamado-item">
+                <div class="card-header">
+                  <span class="num-ticket">#00001</span>
+                  <span class="loja-ticket">Loja 1</span>
+                  <span class="prior-ticket">Médio</span>
+                </div>
+
+                <div class="chamado-conteudo">
+                  <h3>Impressora parou!</h3>
+                </div>
+
+                <div class="chamado-footer">
+                  <div class="analista-ticket">
+                    <h3>Analista:</h3>
+                    <p>David Prestes</p>
+                  </div>
+                </div>
+              </li>
+              <li class="chamado-item">
+                <div class="card-header">
+                  <span class="num-ticket">#00001</span>
+                  <span class="loja-ticket">Loja 1</span>
+                  <span class="prior-ticket">Médio</span>
+                </div>
+
+                <div class="chamado-conteudo">
+                  <h3>Impressora parou!</h3>
+                </div>
+
+                <div class="chamado-footer">
+                  <div class="analista-ticket">
+                    <h3>Analista:</h3>
+                    <p>David Prestes</p>
+                  </div>
+                </div>
+              </li>
+              <li class="chamado-item">
+                <div class="card-header">
+                  <span class="num-ticket">#00001</span>
+                  <span class="loja-ticket">Loja 1</span>
+                  <span class="prior-ticket">Médio</span>
+                </div>
+
+                <div class="chamado-conteudo">
+                  <h3>Impressora parou!</h3>
+                </div>
+
+                <div class="chamado-footer">
+                  <div class="analista-ticket">
+                    <h3>Analista:</h3>
+                    <p>David Prestes</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="js/script.js"></script>
+</html>
