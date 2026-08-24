@@ -39,4 +39,18 @@ router.delete("/:id", (req, res) => {
   }
 });
 
+router.patch("/:id", (req, res) => {
+  const chamadoId = parseInt(req.params.id);
+  const chamado = chamados.find((c) => c.id === chamadoId);
+  if (chamado) {
+    const { titulo, descricao, status } = req.body;
+    if (titulo) chamado.titulo = titulo;
+    if (descricao) chamado.descricao = descricao;
+    if (status) chamado.status = status;
+    res.json(chamado);
+  } else {
+    res.status(404).json({ message: "Chamado não encontrado!" });
+  }
+});
+
 module.exports = router;
