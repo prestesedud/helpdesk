@@ -21,10 +21,11 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   const { titulo, descricao, prioridade } = req.body;
+  const prioridadeFinal = req.body.prioridade || "Média";
   const chamado = db.prepare(
     "INSERT INTO chamados (titulo, descricao, prioridade) VALUES (?, ?, ?)",
   );
-  const resultado = chamado.run(titulo, descricao, prioridade);
+  const resultado = chamado.run(titulo, descricao, prioridadeFinal);
   const novoId = resultado.lastInsertRowid;
   const novoChamado = db
     .prepare("SELECT * FROM chamados WHERE id = ?")
