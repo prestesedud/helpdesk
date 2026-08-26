@@ -1,5 +1,5 @@
-const db = require("./database");
-const chamados = require("./data/chamados");
+const db = require("../database");
+const chamados = require("../data/chamados");
 
 db.prepare("DELETE FROM chamados").run();
 

@@ -45,18 +45,24 @@ router.delete("/:id", (req, res) => {
 
 router.patch("/:id", (req, res) => {
   const chamadoId = parseInt(req.params.id);
-  const { titulo, descricao, status } = req.body;
-  const chamado = db.prepare(
-    "UPDATE chamados SET titulo = ?, descricao = ?, status = ? WHERE id = ? ",
-  );
+  const chamadoAtual = db
+    .prepare("SELECT * FROM chamados WHERE id = ?")
+    .get(chamadoId);
 
-  const resultado = chamado.run(titulo, descricao, status, chamadoId);
-
-  if (resultado.changes > 0) {
-    res.json({ message: "Chamado atualizado com sucesso!" });
-  } else {
-    res.status(404).json({ message: "Chamado não encontrado!" });
+  if (!chamadoAtual) {
+    return res.status(404).json({ message: "Chamado não encontrado!" });
   }
+  const statusFinal = req.body.status || chamadoAtual.status;
+  const prioridadeFinal = req.body.prioridade || chamadoAtual.prioridade;
+  db.prepare("UPDATE chamados SET status = ?, prioridade = ? WHERE id = ?").run(
+    statusFinal,
+    prioridadeFinal,
+    chamadoId,
+  );
+  const chamadoAtualizado = db
+    .prepare("SELECT * FROM chamados WHERE id = ?")
+    .get(chamadoId);
+  res.json(chamadoAtualizado);
 });
 
 module.exports = router;
