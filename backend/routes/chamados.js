@@ -20,11 +20,11 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { titulo, descricao } = req.body;
+  const { titulo, descricao, prioridade } = req.body;
   const chamado = db.prepare(
-    "INSERT INTO chamados (titulo, descricao) VALUES (?, ?)",
+    "INSERT INTO chamados (titulo, descricao, prioridade) VALUES (?, ?, ?)",
   );
-  const resultado = chamado.run(titulo, descricao);
+  const resultado = chamado.run(titulo, descricao, prioridade);
   const novoId = resultado.lastInsertRowid;
   const novoChamado = db
     .prepare("SELECT * FROM chamados WHERE id = ?")
@@ -43,6 +43,8 @@ router.delete("/:id", (req, res) => {
   }
 });
 
+//PATCH só permite atualizar status e prioridade-
+//título/descrição são imutáveis
 router.patch("/:id", (req, res) => {
   const chamadoId = parseInt(req.params.id);
   const chamadoAtual = db
