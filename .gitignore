@@ -5,4 +5,5 @@ node_modules/
 .env
 
 #banco de dados
-helpdesk.db
+*.db
+*.db-journal
