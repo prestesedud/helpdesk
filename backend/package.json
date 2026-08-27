@@ -7,9 +7,10 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "pretest": "del-cli --force helpdesk-test.db && cross-env NODE_ENV=test node migrations/adicionarPrioridade.js && cross-env NODE_ENV=test node migrations/migrarChamados.js",
-    "test": "cross-env NODE_ENV=test node index.js",
-    "dev": "node --watch index.js"
+    "pretest": "del-cli --force helpdesk-test.db && node --env-file=.env.test migrations/adicionarPrioridade.js && node --env-file=.env.test migrations/migrarChamados.js",
+    "test": "node --env-file=.env.test index.js",
+    "dev": "node --env-file=.env.development --watch index.js",
+    "start": "node --env-file=.env.production index.js"
   },
   "keywords": [],
   "dependencies": {
@@ -19,7 +20,6 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "cross-env": "^10.1.0",
     "del-cli": "^7.0.0"
   }
 }
