@@ -9,4 +9,13 @@ db.exec(`
     status TEXT DEFAULT 'Aberto'
     )`);
 
+db.exec(`
+  CREATE TABLE IF NOT EXISTS usuarios (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    email TEXT UNIQUE,
+    senha TEXT,
+    role TEXT DEFAULT 'usuario'
+  )`);
+
 module.exports = db;
