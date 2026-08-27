@@ -7,13 +7,19 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "del-cli --force helpdesk-test.db && cross-env NODE_ENV=test node migrations/adicionarPrioridade.js && cross-env NODE_ENV=test node migrations/migrarChamados.js",
+    "test": "cross-env NODE_ENV=test node index.js",
     "dev": "node --watch index.js"
   },
   "keywords": [],
   "dependencies": {
     "argon2": "^0.45.1",
     "better-sqlite3": "^13.0.3",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "del-cli": "^7.0.0"
   }
 }

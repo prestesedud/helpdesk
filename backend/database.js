@@ -1,5 +1,16 @@
 const Database = require("better-sqlite3");
-const db = new Database("helpdesk.db");
+require("dotenv").config();
+let nomeDoBanco;
+if (process.env.NODE_ENV === "test") {
+  nomeDoBanco = "helpdesk-test.db";
+} else {
+  nomeDoBanco = process.env.BANCO_DADOS || "helpdesk.db";
+}
+const db = new Database(nomeDoBanco);
+
+console.log(
+  `[Banco de dados] Conectado com sucesso ao arquivo: ${nomeDoBanco}`,
+);
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS chamados (
