@@ -4,6 +4,9 @@ node_modules/
 #variáveis de ambiente
 .env
 .env.local
+.env.development
+.env.production
+.env.test
 
 #banco de dados
 *.db

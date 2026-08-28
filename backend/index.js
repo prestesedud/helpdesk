@@ -13,5 +13,3 @@ app.use("/auth", authRouter);
 app.listen(3000, () => {
   console.log("O servidor está rodando na porta 3000!");
 });
-
-console.log("-> Variável lida: ", process.env.TESTE_NATIVO);
