@@ -1,5 +1,4 @@
 const Database = require("better-sqlite3");
-require("dotenv").config();
 let nomeDoBanco;
 if (process.env.NODE_ENV === "test") {
   nomeDoBanco = "helpdesk-test.db";
