@@ -1,6 +1,8 @@
 const express = require("express");
 const db = require("../database");
 const router = express.Router();
+const verificarToken = require("../middlewares/verificarToken");
+const verificarAdmin = require("../middlewares/verificarAdmin");
 
 router.get("/", (req, res) => {
   const chamados = db.prepare("SELECT * FROM chamados").all();
@@ -33,7 +35,7 @@ router.post("/", (req, res) => {
   res.status(201).json(novoChamado);
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", verificarAdmin, (req, res) => {
   const chamadoId = parseInt(req.params.id);
   const chamado = db.prepare("DELETE FROM chamados WHERE id = ?");
   const resultado = chamado.run(chamadoId);
