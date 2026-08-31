@@ -23,7 +23,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   const { titulo, descricao, prioridade } = req.body;
-  const prioridadeFinal = req.body.prioridade || "Média";
+  const prioridadeFinal = prioridade || "Média";
   const prioridadesValidas = ["Alta", "Média", "Baixa"];
 
   if (!titulo) {
@@ -79,7 +79,21 @@ router.patch("/:id", verificarAdmin, (req, res) => {
     return res.status(404).json({ message: "Chamado não encontrado!" });
   }
   const statusFinal = req.body.status || chamadoAtual.status;
+  const statusValidos = ["Aberto", "Em atendimento", "Pausado", "Fechado"];
+  if (!statusValidos.includes(statusFinal)) {
+    res.status(400).json({
+      message: "Status inválido",
+    });
+    return;
+  }
   const prioridadeFinal = req.body.prioridade || chamadoAtual.prioridade;
+  const prioridadesValidas = ["Alta", "Média", "Baixa"];
+  if (!prioridadesValidas.includes(prioridadeFinal)) {
+    res.status(400).json({
+      message: "Prioridade inválida!",
+    });
+    return;
+  }
   db.prepare("UPDATE chamados SET status = ?, prioridade = ? WHERE id = ?").run(
     statusFinal,
     prioridadeFinal,
