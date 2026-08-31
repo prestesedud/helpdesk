@@ -24,6 +24,27 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   const { titulo, descricao, prioridade } = req.body;
   const prioridadeFinal = req.body.prioridade || "Média";
+  const prioridadesValidas = ["Alta", "Média", "Baixa"];
+
+  if (!titulo) {
+    res.status(400).json({
+      message: "Por favor, insira um título!",
+    });
+    return;
+  }
+
+  if (!descricao) {
+    res.status(400).json({
+      message: "O campo descrição não pode estar vazio, favor, preenche-lo!",
+    });
+    return;
+  }
+
+  if (!prioridadesValidas.includes(prioridadeFinal)) {
+    res.status(400).json({ message: "Prioridade inválida!" });
+    return;
+  }
+
   const chamado = db.prepare(
     "INSERT INTO chamados (titulo, descricao, prioridade) VALUES (?, ?, ?)",
   );
@@ -48,7 +69,7 @@ router.delete("/:id", verificarAdmin, (req, res) => {
 
 //PATCH só permite atualizar status e prioridade-
 //título/descrição são imutáveis
-router.patch("/:id", (req, res) => {
+router.patch("/:id", verificarAdmin, (req, res) => {
   const chamadoId = parseInt(req.params.id);
   const chamadoAtual = db
     .prepare("SELECT * FROM chamados WHERE id = ?")
