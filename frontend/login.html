@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/login.css" />
+    <title>Login | Helpdesk</title>
+  </head>
+  <body>
+    <form action="/" method="POST" class="login-form">
+      <div class="logo-container">
+        <h1>Helpdesk</h1>
+      </div>
+
+      <div class="container">
+        <label for="email_login"><b>Email</b></label>
+        <input
+          type="text"
+          placeholder="Email"
+          id="email_login"
+          name="email"
+          required
+        />
+
+        <label for="passwd_login"><b>Senha</b></label>
+        <input
+          type="password"
+          placeholder="Senha"
+          id="passwd_login"
+          name="psswd_login"
+          required
+        />
+
+        <div class="form-options">
+          <div class="lembrarme">
+            <input
+              type="checkbox"
+              id="remember_login"
+              name="remember_login"
+              checked
+            />
+            <label for="remember_login">Lembrar-me</label>
+          </div>
+          <span class="psswd">Esqueceu a <a href="#">senha?</a></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="loginBtn">Login</button>
+          <button type="button" class="cancelBtn">Cancelar</button>
+        </div>
+      </div>
+      <div class="cadastro-link" id="cadastro_link">
+        <p>
+          Não tem uma conta?
+          <button type="button" class="btn-cadastrar" id="btn_cadastrar">
+            Cadastre-se
+          </button>
+        </p>
+      </div>
+    </form>
+
+    <form action="#" class="cadastro-form hide">
+      <div class="logo-container">
+        <img src="#" alt="Helpdesk Logo" class="logo-image" />
+      </div>
+      <div class="container">
+        <h1>Cadastre-se</h1>
+        <p>Por favor, preencha os campos abaixo para criar sua conta.</p>
+        <hr />
+
+        <label for="name"><b>Nome</b></label>
+        <input type="text" placeholder="Nome" id="name" name="name" required />
+
+        <label for="email_cadastro"><b>Email</b></label>
+        <input
+          type="text"
+          placeholder="Email"
+          id="email_cadastro"
+          name="email_cadastro"
+          required
+        />
+
+        <label for="passwd_cadastro"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Digite sua senha"
+          id="passwd_cadastro"
+          name="passwd_cadastro"
+          required
+        />
+
+        <label for="passwd_confirm"><b>Confirmar Senha</b></label>
+        <input
+          type="password"
+          placeholder="Confirme sua senha"
+          id="passwd_confirm"
+          name="passwd_confirm"
+          required
+        />
+
+        <label>
+          <input type="checkbox" checked="checked" name="remember_cadastro" />
+          Lembrar-me
+        </label>
+
+        <p>
+          Ao criar uma conta, você concorda com nossos Termos e Política de
+          Privacidade.
+        </p>
+
+        <div class="cancel-signup">
+          <button type="button" class="cancelBtn">Cancelar</button>
+          <button type="submit" class="cadastrarBtn">Cadastrar</button>
+        </div>
+
+        <div class="login-link" id="login_link">
+          <p>
+            Já possui uma conta? faça <b>login.</b>
+            <button type="button" class="btn-login" id="btn_login">
+              Login
+            </button>
+          </p>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
