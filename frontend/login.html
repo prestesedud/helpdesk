@@ -9,27 +9,29 @@
   <body>
     <form action="/" method="POST" class="login-form">
       <div class="logo-container">
-        <h1>Helpdesk</h1>
+        <h1>Helpdesk | <span>Login</span></h1>
       </div>
 
       <div class="container">
-        <label for="email_login"><b>Email</b></label>
-        <input
-          type="text"
-          placeholder="Email"
-          id="email_login"
-          name="email"
-          required
-        />
+        <div class="container-inputs">
+          <label for="email_login"><b>Email:</b></label>
+          <input
+            type="text"
+            placeholder="Email"
+            id="email_login"
+            name="email"
+            required
+          />
 
-        <label for="passwd_login"><b>Senha</b></label>
-        <input
-          type="password"
-          placeholder="Senha"
-          id="passwd_login"
-          name="psswd_login"
-          required
-        />
+          <label for="passwd_login"><b>Senha:</b></label>
+          <input
+            type="password"
+            placeholder="Senha"
+            id="passwd_login"
+            name="psswd_login"
+            required
+          />
+        </div>
 
         <div class="form-options">
           <div class="lembrarme">
@@ -50,28 +52,28 @@
         </div>
       </div>
       <div class="cadastro-link" id="cadastro_link">
-        <p>
-          Não tem uma conta?
-          <button type="button" class="btn-cadastrar" id="btn_cadastrar">
-            Cadastre-se
-          </button>
-        </p>
+        <p>Não tem uma conta?</p>
+        <button type="button" class="btn-cadastrar" id="btn_cadastrar">
+          Cadastre-se
+        </button>
       </div>
     </form>
 
-    <form action="#" class="cadastro-form hide">
+    <form action="#" class="cadastro-form">
       <div class="logo-container">
-        <img src="#" alt="Helpdesk Logo" class="logo-image" />
+        <h1>Helpdesk | <span>Cadastro</span></h1>
       </div>
+
       <div class="container">
-        <h1>Cadastre-se</h1>
+        <div class="container-inputs">
+          <h1>Cadastre-se</h1>
         <p>Por favor, preencha os campos abaixo para criar sua conta.</p>
         <hr />
 
-        <label for="name"><b>Nome</b></label>
+        <label for="name"><b>Nome:</b></label>
         <input type="text" placeholder="Nome" id="name" name="name" required />
 
-        <label for="email_cadastro"><b>Email</b></label>
+        <label for="email_cadastro"><b>Email:</b></label>
         <input
           type="text"
           placeholder="Email"
@@ -80,7 +82,7 @@
           required
         />
 
-        <label for="passwd_cadastro"><b>Password</b></label>
+        <label for="passwd_cadastro"><b>Senha:</b></label>
         <input
           type="password"
           placeholder="Digite sua senha"
@@ -89,7 +91,7 @@
           required
         />
 
-        <label for="passwd_confirm"><b>Confirmar Senha</b></label>
+        <label for="passwd_confirm"><b>Confirmar Senha:</b></label>
         <input
           type="password"
           placeholder="Confirme sua senha"
@@ -97,11 +99,7 @@
           name="passwd_confirm"
           required
         />
-
-        <label>
-          <input type="checkbox" checked="checked" name="remember_cadastro" />
-          Lembrar-me
-        </label>
+        </div>
 
         <p>
           Ao criar uma conta, você concorda com nossos Termos e Política de
@@ -109,8 +107,8 @@
         </p>
 
         <div class="cancel-signup">
-          <button type="button" class="cancelBtn">Cancelar</button>
           <button type="submit" class="cadastrarBtn">Cadastrar</button>
+          <button type="button" class="cancelBtn">Cancelar</button>
         </div>
 
         <div class="login-link" id="login_link">
