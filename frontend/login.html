@@ -59,52 +59,52 @@
       </div>
     </form>
 
-    <form action="#" class="cadastro-form">
+    <form action="#" class="cadastro-form hide">
       <div class="logo-container">
         <h1>Helpdesk | <span>Cadastro</span></h1>
       </div>
 
       <div class="container">
         <div class="container-inputs">
-          <h1>Cadastre-se</h1>
-        <p>Por favor, preencha os campos abaixo para criar sua conta.</p>
-        <hr />
+          <p>Por favor, preencha os campos abaixo para criar sua conta.</p>
+          <hr />
 
-        <label for="name"><b>Nome:</b></label>
-        <input type="text" placeholder="Nome" id="name" name="name" required />
+          <label for="name"><b>Nome:</b></label>
+          <input
+            type="text"
+            placeholder="Nome"
+            id="name"
+            name="name"
+            required
+          />
 
-        <label for="email_cadastro"><b>Email:</b></label>
-        <input
-          type="text"
-          placeholder="Email"
-          id="email_cadastro"
-          name="email_cadastro"
-          required
-        />
+          <label for="email_cadastro"><b>Email:</b></label>
+          <input
+            type="text"
+            placeholder="Email"
+            id="email_cadastro"
+            name="email_cadastro"
+            required
+          />
 
-        <label for="passwd_cadastro"><b>Senha:</b></label>
-        <input
-          type="password"
-          placeholder="Digite sua senha"
-          id="passwd_cadastro"
-          name="passwd_cadastro"
-          required
-        />
+          <label for="passwd_cadastro"><b>Senha:</b></label>
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            id="passwd_cadastro"
+            name="passwd_cadastro"
+            required
+          />
 
-        <label for="passwd_confirm"><b>Confirmar Senha:</b></label>
-        <input
-          type="password"
-          placeholder="Confirme sua senha"
-          id="passwd_confirm"
-          name="passwd_confirm"
-          required
-        />
+          <label for="passwd_confirm"><b>Confirmar Senha:</b></label>
+          <input
+            type="password"
+            placeholder="Confirme sua senha"
+            id="passwd_confirm"
+            name="passwd_confirm"
+            required
+          />
         </div>
-
-        <p>
-          Ao criar uma conta, você concorda com nossos Termos e Política de
-          Privacidade.
-        </p>
 
         <div class="cancel-signup">
           <button type="submit" class="cadastrarBtn">Cadastrar</button>
@@ -113,13 +113,23 @@
 
         <div class="login-link" id="login_link">
           <p>
-            Já possui uma conta? faça <b>login.</b>
-            <button type="button" class="btn-login" id="btn_login">
-              Login
-            </button>
+            Já possui uma conta? faça <b> <a href="#">login.</a></b>
           </p>
+
+          <button type="button" class="btn-login" id="btn_login">
+            Voltar ao login
+          </button>
+        </div>
+
+        <div class="terms">
+          <span>
+            Ao criar uma conta, você concorda com nossos
+            <a href="#">Termos e Política de Privacidade</a>.
+          </span>
         </div>
       </div>
     </form>
+
+    <script src="js/login_hide.js"></script>
   </body>
 </html>

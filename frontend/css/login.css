@@ -80,17 +80,11 @@ body {
   gap: 5px;
 }
 
-.container-inputs h1 {
-  font-family: var(--font-titulo);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--cor-primaria);
-}
-
 .container-inputs p {
   font-family: var(--font-conteudo);
+  text-align: center;
   font-size: 14px;
-  color: var(--cor-primaria); 
+  color: var(--cor-primaria);
   width: 80%;
 }
 
@@ -103,6 +97,65 @@ body {
 .container-inputs b {
   font-family: var(--font-conteudo);
   font-size: 0.9rem;
+}
+
+.cancel-signup {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.cadastrarBtn {
+  width: 8rem;
+  text-align: center;
+  background-color: var(--cor-info);
+}
+
+.cadastrarBtn:hover {
+  background-color: var(--cor-primaria);
+  transition: 0.3s ease-in-out;
+}
+
+.cancelBtn {
+  width: 8rem;
+  text-align: center;
+  background-color: var(--cor-danger-light);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-family: var(--font-conteudo);
+  letter-spacing: 0.3px;
+  font-size: 14px;
+}
+
+.login-link p {
+  margin-bottom: 8px;
+  font-family: var(--font-conteudo);
+  font-size: 14px;
+}
+
+.btn-login {
+  width: 10rem;
+  text-align: center;
+  background-color: var(--cor-success);
+}
+
+.btn-login:hover {
+  background-color: var(--cor-primaria);
+  transition: 0.3s ease-in-out;
+}
+
+.login-link a {
+  text-decoration: none;
+  color: var(--cor-primaria);
+  font-family: var(--font-conteudo);
+  font-size: 14px;
 }
 
 label {
@@ -228,3 +281,18 @@ button {
   background-color: var(--cor-primaria);
   transition: 0.3s ease-in-out;
 }
+
+.terms {
+  font-family: var(--font-conteudo);
+  font-size: 12px;
+  text-align: center;
+  color: var(--cor-primaria);
+  margin-top: 10px;
+}
+
+.terms a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 600;
+}
+
