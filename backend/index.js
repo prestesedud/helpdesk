@@ -4,8 +4,14 @@ const db = require("./database");
 const chamadosRouter = require("./routes/chamados");
 const authRouter = require("./routes/auth");
 const verificarToken = require("./middlewares/verificarToken");
+const cors = require("cors");
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://127.0.0.1:5500",
+  }),
+);
 app.get("/", (req, res) => {
   res.send("Servidor rodando!");
 });
