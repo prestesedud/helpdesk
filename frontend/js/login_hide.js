@@ -47,8 +47,17 @@ formularioLogin.addEventListener("submit", async function (event) {
     });
 
     const dados = await resposta.json();
+
     if (resposta.ok) {
       console.log("Login bem sucedido: ", dados);
+      if (dados.token) {
+        localStorage.setItem("token", dados.token);
+      }
+      if (dados.usuario) {
+        localStorage.setItem("usuario", JSON.stringify(dados.usuario));
+      }
+      formularioLogin.reset();
+      window.location.href = "index.html";
     } else {
       alert(`Erro no login: ${dados.mensagem || "credenciais inválidas"}`);
     }
@@ -56,8 +65,6 @@ formularioLogin.addEventListener("submit", async function (event) {
     console.error("Erro na requisição: ", erro);
     alert("Erro na conexão. Tente novamente mais tarde.");
   }
-
-  formularioLogin.reset();
 
   //cadastro
 });
