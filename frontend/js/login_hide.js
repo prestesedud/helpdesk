@@ -53,13 +53,19 @@ formularioLogin.addEventListener("submit", async function (event) {
       if (dados.token) {
         localStorage.setItem("token", dados.token);
       }
-      if (dados.usuario) {
-        localStorage.setItem("usuario", JSON.stringify(dados.usuario));
+      if (dados.nome && dados.role) {
+        localStorage.setItem(
+          "usuario",
+          JSON.stringify({
+            nome: dados.nome,
+            role: dados.role,
+          }),
+        );
       }
       formularioLogin.reset();
       window.location.href = "index.html";
     } else {
-      alert(`Erro no login: ${dados.mensagem || "credenciais inválidas"}`);
+      alert(`Erro no login: ${dados.message || "credenciais inválidas"}`);
     }
   } catch (erro) {
     console.error("Erro na requisição: ", erro);
@@ -67,4 +73,54 @@ formularioLogin.addEventListener("submit", async function (event) {
   }
 
   //cadastro
+});
+
+const formularioCadastro = document.querySelector(".cadastro-form");
+formularioCadastro.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  console.log("formulário enviado!");
+
+  const nome = document.getElementById("nome").value.trim();
+  const emailCadastro = document.getElementById("email_cadastro").value.trim();
+  const senhaCadastro = document.getElementById("passwd_cadastro").value;
+  const confirmacaoSenha = document.getElementById("passwd_confirm").value;
+
+  if (!nome || !emailCadastro || !senhaCadastro || !confirmacaoSenha) {
+    alert("Existem valores não inseridos!");
+    return;
+  }
+
+  if (senhaCadastro.length < 6) {
+    alert("Senha muito curta!");
+    return;
+  }
+
+  if (confirmacaoSenha !== senhaCadastro) {
+    alert("As senhas não coincidem!");
+    return;
+  }
+
+  try {
+    const resposta = await fetch("http://localhost:3000/auth/cadastro", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        nome: nome,
+        email: emailCadastro,
+        senha: senhaCadastro,
+      }),
+    });
+    const dados = await resposta.json();
+
+    if (resposta.ok) {
+      console.log("Usuário registrado com sucesso!", dados);
+      return;
+    } else {
+      alert(`Erro no cadastro: ${dados.message || "Cadastro não efetuado!"}`);
+    }
+  } catch (erro) {
+    console.error("Erro na requisição: ", erro);
+    alert("Erro na conexão. Tente novamente mais tarde.");
+  }
 });

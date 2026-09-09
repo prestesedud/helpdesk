@@ -24,7 +24,7 @@ router.post("/cadastro", async (req, res) => {
   } catch (erro) {
     console.error(erro);
     res.status(409).json({
-      erro: "Dados incorretos!",
+      message: "Dados incorretos!",
       campo: "email",
     });
   }
@@ -54,7 +54,8 @@ router.post("/login", async (req, res) => {
       expiresIn: "1h",
     },
   );
-  res.status(200).json({ token });
+  const { nome, role } = usuario;
+  res.status(200).json({ token, nome, role });
 });
 
 module.exports = router;
