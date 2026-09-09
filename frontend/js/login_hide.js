@@ -81,7 +81,7 @@ formularioCadastro.addEventListener("submit", async function (event) {
 
   console.log("formulário enviado!");
 
-  const nome = document.getElementById("nome").value.trim();
+  const nome = document.getElementById("name").value.trim();
   const emailCadastro = document.getElementById("email_cadastro").value.trim();
   const senhaCadastro = document.getElementById("passwd_cadastro").value;
   const confirmacaoSenha = document.getElementById("passwd_confirm").value;
@@ -114,8 +114,9 @@ formularioCadastro.addEventListener("submit", async function (event) {
     const dados = await resposta.json();
 
     if (resposta.ok) {
-      console.log("Usuário registrado com sucesso!", dados);
-      return;
+      alert("Usuário cadastrado com sucesso!");
+      formularioCadastro.reset();
+      btnLogin.click();
     } else {
       alert(`Erro no cadastro: ${dados.message || "Cadastro não efetuado!"}`);
     }
