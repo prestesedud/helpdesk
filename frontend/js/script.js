@@ -34,3 +34,12 @@ if (userObject) {
 } else {
   console.log("Nenhum usuário encontrado!");
 }
+
+const dropConta = document.getElementById("conta-btn");
+const dropSair = document.getElementById("sair-btn");
+
+dropSair.addEventListener("click", () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("usuario");
+  window.location.href = "http://127.0.0.1:5500/frontend/login.html";
+});
