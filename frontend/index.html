@@ -44,7 +44,36 @@
         <button id="new-ticket-btn" class="new-ticket">Novo Chamado</button>
       </aside>
 
-      <div class="overlay">j</div>
+      <div class="overlay">
+        <form action="#" class="chamado-formulario">
+          <div class="ticket-titulo">
+            <h2>Novo Ticket</h2>
+          </div>
+
+          <label for="titulo">Título:</label>
+          <input type="text" id="titulo" />
+
+          <label for="descricao">Descrição:</label>
+          <textarea
+            name="descricao"
+            id="descricao"
+            rows="10"
+            cols="80"
+            placeholder="digite aqui o problema que está enfrentando..."
+          ></textarea>
+
+          <select name="prioridade" id="prioridade">
+            <option value="Alta">Alta</option>
+            <option value="Média">Média</option>
+            <option value="Baixa">Baixa</option>
+          </select>
+
+          <div class="buttons-nticket">
+            <button type="submit">Criar</button>
+            <button type="button">Cancelar</button>
+          </div>
+        </form>
+      </div>
 
       <section class="dashboard">
         <h1>Dashboard</h1>

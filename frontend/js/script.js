@@ -73,3 +73,52 @@ dropSair.addEventListener("click", () => {
   localStorage.removeItem("usuario");
   window.location.href = "http://127.0.0.1:5500/frontend/login.html";
 });
+
+//new ticket
+
+const novoChamado = document.getElementById("new-ticket-btn");
+const overlay = document.querySelector(".overlay");
+const formChamado = document.querySelector(".chamado-formulario");
+novoChamado.addEventListener("click", () => {
+  overlay.classList.toggle("hide");
+  formChamado.classList.toggle("hide");
+});
+
+const formNTicket = document.querySelector(".chamado-formulario");
+formNTicket.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  console.log("Ticket enviado!");
+  const tituloNTicket = document.getElementById("titulo").value;
+  const descricaoNTicket = document.getElementById("descricao").value;
+  const prioridadeNTicket = document.getElementById("prioridade").value;
+
+  if (!tituloNTicket || !descricaoNTicket || !prioridadeNTicket) {
+    alert("Ticket não enviado, revise os campos!");
+    return;
+  }
+
+  try {
+    const token = localStorage.getItem("token");
+    const resposta = await fetch("http://localhost:3000/chamados", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        titulo: tituloNTicket,
+        descricao: descricaoNTicket,
+        prioridade: prioridadeNTicket,
+      }),
+    });
+    const dados = await resposta.json();
+
+    if (resposta.ok) {
+      console.log("Ticket enviado com sucesso!", dados);
+      buscarChamados();
+      return;
+    } else {
+      console.log("Ticket não enviado. Verifique os campos!");
+      return;
+    }
+  } catch (erro) {}
+});
