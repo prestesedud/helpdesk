@@ -45,15 +45,20 @@ router.post("/", (req, res) => {
     return;
   }
 
-  const chamado = db.prepare(
-    "INSERT INTO chamados (titulo, descricao, prioridade) VALUES (?, ?, ?)",
-  );
-  const resultado = chamado.run(titulo, descricao, prioridadeFinal);
-  const novoId = resultado.lastInsertRowid;
-  const novoChamado = db
-    .prepare("SELECT * FROM chamados WHERE id = ?")
-    .get(novoId);
-  res.status(201).json(novoChamado);
+  try {
+    const chamado = db.prepare(
+      "INSERT INTO chamados (titulo, descricao, prioridade) VALUES (?, ?, ?)",
+    );
+    const resultado = chamado.run(titulo, descricao, prioridadeFinal);
+    const novoId = resultado.lastInsertRowid;
+    const novoChamado = db
+      .prepare("SELECT * FROM chamados WHERE id = ?")
+      .get(novoId);
+    res.status(201).json(novoChamado);
+  } catch (erro) {
+    console.error("ERRO AO CRIAR CHAMADO:", erro);
+    res.status(500).json({ message: "Erro interno ao criar chamado." });
+  }
 });
 
 router.delete("/:id", verificarAdmin, (req, res) => {
