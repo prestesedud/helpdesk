@@ -102,6 +102,7 @@ formNTicket.addEventListener("submit", async function (event) {
     const resposta = await fetch("http://localhost:3000/chamados", {
       method: "POST",
       headers: {
+        "Content-type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
@@ -114,11 +115,21 @@ formNTicket.addEventListener("submit", async function (event) {
 
     if (resposta.ok) {
       console.log("Ticket enviado com sucesso!", dados);
+      alert("O ticket foi enviado com sucesso!");
+      overlay.classList.add("hide");
+      formChamado.classList.add("hide");
+      formNTicket.reset();
       buscarChamados();
       return;
     } else {
       console.log("Ticket não enviado. Verifique os campos!");
+      alert(
+        `Erro ao criar chamado: ${dados.message || "Verifique os campos!"}`,
+      );
       return;
     }
-  } catch (erro) {}
+  } catch (erro) {
+    console.error("Erro na requisição", erro);
+    alert("Erro na conexão. Tente novamente mais tarde.");
+  }
 });
