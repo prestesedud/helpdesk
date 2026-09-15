@@ -1,3 +1,5 @@
+@import url("import.css");
+
 * {
   margin: 0;
   padding: 0;
@@ -251,6 +253,58 @@ main {
   object-fit: cover;
 }
 
+/*overlay*/
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chamado-formulario {
+  background-color: var(--cor-dark);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-titulo h2 {
+  font-family: var(--font-titulo);
+  background-color: var(--cor-primaria);
+  padding: 2px;
+  color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom:  10px;
+}
+
+.chamado-formulario label {
+  margin-bottom: 4px;
+}
+
+.chamado-formulario input {
+  margin-bottom: 10px;
+  height: 2.2rem;
+
+}
+
+.chamado-formulario textarea {
+  margin-bottom: 10px;
+}
+
+.chamado-formulario select {
+  margin-bottom: 10px;
+  height: 2rem;
+}
 /*Medias*/
 
 @media (max-width: 600px) {
