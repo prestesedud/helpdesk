@@ -2,7 +2,7 @@
   /* --- Paleta base ------------------------------------- */
   --color-ink: #161310;
   --color-ink-soft: #3a332a;
-  --color-bone: #fffaef;
+  --color-bone: #f8f4eb;
   --color-parchment: #f2ead6;
   --color-slate: #1e1c19;
 
@@ -12,7 +12,7 @@
   --color-parchment-dark-mode: #2b2721;
   --color-slate-dark-mode: #0e0d0b;
 
-  --color-sky-cobalt: #2e5dd6;
+  --color-sky-cobalt: #6d3fd6;
   --color-ember: #c8442f;
   --color-amber: #e0a020;
   --color-moss: #3f8f4f;
@@ -72,4 +72,6 @@
   --text-primary: var(--color-ink-dark-mode);
   --text-secondary: var(--color-ink-soft-dark-mode);
   --line: var(--color-ink-dark-mode);
+  --btn-new: var(--color-slate-dark-mode);
+  --btn-new-shadow: var(var(--color-slate-dark-mode));
 }
