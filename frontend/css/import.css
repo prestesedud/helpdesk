@@ -1,20 +1,75 @@
-/*Importar fontes*/
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-
 :root {
-  --cor-primaria: #262621;
-  --cor-secundaria: #bfbfae;
-  --cor-success: #73675a;
-  --cor-danger: #8c8072;
-  --cor-warning: #f2f2f2;
-  --cor-info: #17a2b8;
-  --cor-light: #f8f9fa;
-  --cor-dark: #343a40;
-  --cor-danger-light: #dc3545;
+  /* --- Paleta base ------------------------------------- */
+  --color-ink: #161310;
+  --color-ink-soft: #3a332a;
+  --color-bone: #fffaef;
+  --color-parchment: #f2ead6;
+  --color-slate: #1e1c19;
+
+  --color-ink-dark-mode: #fdf8ec;
+  --color-ink-soft-dark-mode: #c9c0ab;
+  --color-bone-dark-mode: #221f1a;
+  --color-parchment-dark-mode: #2b2721;
+  --color-slate-dark-mode: #0e0d0b;
+
+  --color-sky-cobalt: #2e5dd6;
+  --color-ember: #c8442f;
+  --color-amber: #e0a020;
+  --color-moss: #3f8f4f;
+
+  --color-prio-alta: var(--color-ember);
+  --color-prio-media: var(--color-amber);
+  --color-prio-baixa: var(--color-moss);
+
+  /* --- Tipografia -------------------------------------- */
+  --font-hud: "VT323", ui-monospace, "Source Code Pro", monospace;
+  --font-body: "Source Code Pro", ui-monospace, monospace;
+  --font-titulo: var(--font-hud);
+  --font-conteudo: var(--font-body);
+
+  /* --- Espaçamento --------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* --- Traço --------------------------------------------- */
+  --border-w: 2px;
+
+  --bg-page: var(--color-slate);
+  --bg-surface: var(--color-bone);
+  --bg-surface-alt: var(--color-parchment);
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-ink-soft);
+  --line: var(--color-ink);
+
+  --border: var(--border-w) solid var(--line);
+  --shadow-hard: 4px 4px 0 0 var(--line);
+  --shadow-hard-sm: 2px 2px 0 0 var(--line);
+  --shadow-hard-focus: 4px 4px 0 0 var(--color-sky-cobalt);
+
+  /* --- Compatibilidade com os nomes antigos (ex.: tela de login) */
+  --cor-primaria: var(--color-sky-cobalt);
+  --cor-secundaria: var(--color-parchment);
+  --cor-success: var(--color-moss);
+  --cor-danger: var(--color-ember);
+  --cor-warning: var(--color-amber);
+  --cor-info: var(--color-sky-cobalt);
+  --cor-light: var(--color-bone);
+  --cor-dark: var(--color-ink);
+  --cor-danger-light: var(--color-ember);
+  --cor-aberto: var(--color-ember);
+  --cor-andamento: var(--color-amber);
+  --cor-resolvido: var(--color-moss);
 }
-:root {
-  --font-titulo: "Source Code Pro", monospace;
-  --font-conteudo: "Google Sans Code", monospace;
+
+:root[data-theme="dark"] {
+  --bg-page: var(--color-slate-dark-mode);
+  --bg-surface: var(--color-bone-dark-mode);
+  --bg-surface-alt: var(--color-parchment-dark-mode);
+  --text-primary: var(--color-ink-dark-mode);
+  --text-secondary: var(--color-ink-soft-dark-mode);
+  --line: var(--color-ink-dark-mode);
 }

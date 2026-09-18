@@ -3,181 +3,296 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Painel de chamados do Helpdesk: acompanhe tickets abertos, em andamento e resolvidos."
+    />
+    <title>Chamados · Helpdesk</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&family=VT323&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/import.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/import.css">
-    <title>Helpdesk</title>
   </head>
-  <body>
-    <header>
-      <button id="btn-mobile" aria-label="Abrir menu">
+
+  <body class="container">
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header class="header">
+      <button
+        id="btn-mobile"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <div class="logo">Helpdesk</div>
+      <a class="logo" href="/">Helpdesk</a>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Alternar tema claro/escuro"
+        aria-pressed="false"
+      >
+        <svg class="icon-moon" viewBox="0 0 256 256" aria-hidden="true">
+          <path
+            d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23Z"
+          ></path>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 256 256" aria-hidden="true">
+          <path
+            d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"
+          ></path>
+        </svg>
+      </button>
+
       <div class="usuario">
-        <button id="profile-icon-btn">
-          <img src="assets/imagens/icon-user.png" alt="icon user" />
+        <button
+          id="profile-icon-btn"
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="dropdown-list"
+        >
+          <svg class="avatar" viewBox="0 0 256 256" aria-hidden="true">
+            <path
+              d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm0 40a36 36 0 1 1-36 36 36 36 0 0 1 36-36Zm0 152a87.6 87.6 0 0 1-61-24.6 68 68 0 0 1 122 0 87.6 87.6 0 0 1-61 24.6Z"
+            ></path>
+          </svg>
+          <span id="nome-usuario">Visitante</span>
         </button>
 
-        <span id="nome-usuario"> </span>
-
         <ul id="dropdown-list" class="hide">
-          <li><button id="conta-btn">Conta</button></li>
-          <li><button id="sair-btn">Sair</button></li>
+          <li><button id="conta-btn" type="button">Conta</button></li>
+          <li><button id="sair-btn" type="button">Sair</button></li>
         </ul>
       </div>
     </header>
 
-    <main>
-      <aside class="sidebar" id="sidebar">
+    <div class="layout">
+      <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
         <nav>
           <ul class="menu">
-            <li class="menu-item"><a href="/">Dashboard</a></li>
-            <li class="menu-item"><a href="/">Chamados</a></li>
-            <li class="menu-item"><a href="/">Usuários</a></li>
-            <li class="menu-item"><a href="/">Categorias</a></li>
-            <li class="menu-item"><a href="/">Configurações</a></li>
+            <li class="menu-item">
+              <a href="/" aria-current="page">Dashboard</a>
+            </li>
+            <li class="menu-item"><a href="/chamados">Chamados</a></li>
+            <li class="menu-item"><a href="/usuarios">Usuários</a></li>
+            <li class="menu-item"><a href="/categorias">Categorias</a></li>
+            <li class="menu-item">
+              <a href="/configuracoes">Configurações</a>
+            </li>
           </ul>
         </nav>
 
-        <button id="new-ticket-btn" class="new-ticket">Novo Chamado</button>
+        <button id="new-ticket-btn" class="new-ticket" type="button">
+          Novo chamado
+        </button>
       </aside>
 
-      <div class="overlay">
-        <form action="#" class="chamado-formulario">
-          <div class="ticket-titulo">
-            <h2>Novo Ticket</h2>
+      <main class="dashboard" id="conteudo">
+        <section class="dashboard-cards" aria-labelledby="titulo-resumo">
+          <h1 class="secao-titulo" id="titulo-resumo">Todos os chamados</h1>
+
+          <div class="tickets">
+            <article class="ticket-card aberto">
+              <span>Chamados abertos</span>
+              <strong>12</strong>
+            </article>
+
+            <article class="ticket-card andamento">
+              <span>Em andamento</span>
+              <strong>5</strong>
+            </article>
+
+            <article class="ticket-card resolvido">
+              <span>Resolvidos</span>
+              <strong>20</strong>
+            </article>
           </div>
+        </section>
 
-          <label for="titulo">Título:</label>
-          <input type="text" id="titulo" />
-
-          <label for="descricao">Descrição:</label>
-          <textarea
-            name="descricao"
-            id="descricao"
-            rows="10"
-            cols="80"
-            placeholder="digite aqui o problema que está enfrentando..."
-          ></textarea>
-
-          <label for="prioridade">Prioridade:</label>
-          <select name="prioridade" id="prioridade">
-            <option value="Alta">Alta</option>
-            <option value="Média">Média</option>
-            <option value="Baixa">Baixa</option>
-          </select>
-
-          <div class="buttons-nticket">
-            <button type="submit">Criar</button>
-            <button type="button">Cancelar</button>
-          </div>
-        </form>
-      </div>
-
-      <section class="dashboard">
-        <h1>Dashboard</h1>
-        <div class="tickets">
-          <div class="ticket-card">
-            <span>Chamados Abertos</span>
-            <strong>12</strong>
-          </div>
-          <div class="ticket-card">
-            <span>Chamados Em Andamento</span>
-            <strong>5</strong>
-          </div>
-          <div class="ticket-card">
-            <span>Chamados Resolvidos</span>
-            <strong>20</strong>
-          </div>
-        </div>
-
-        <div class="chamados-lista">
-          <h2>Chamados Recentes</h2>
-
-          <div class="chamados-scroll">
+        <section class="chamados-lista" aria-labelledby="titulo-chamados">
+          <div class="chamados-header">
+            <h2 class="secao-titulo" id="titulo-chamados">Chamados recentes</h2>
+          <div
+            class="chamados-scroll"
+            tabindex="0"
+            role="group"
+            aria-label="Lista de chamados recentes"
+          >
             <ul class="chamados">
               <li class="chamado-item">
                 <div class="card-header">
                   <span class="num-ticket">#00001</span>
-                  <span class="prior-ticket">Médio</span>
+                  <span class="prior-ticket" data-prioridade="Alta">Alta</span>
                 </div>
-
                 <div class="chamado-conteudo">
-                  <h3>Meu computador não está ligando!</h3>
+                  <h3>Meu computador não está ligando</h3>
                 </div>
-
-                <div class="chamado-footer"></div>
+                <div class="chamado-footer">
+                  <span class="chamado-status" data-status="aberto"
+                    >Aberto</span
+                  >
+                  <time datetime="2026-09-17">Hoje, 09:12</time>
+                </div>
               </li>
 
               <li class="chamado-item">
                 <div class="card-header">
-                  <span class="num-ticket">#00001</span>
-                  <span class="prior-ticket">Médio</span>
+                  <span class="num-ticket">#00002</span>
+                  <span class="prior-ticket" data-prioridade="Média"
+                    >Média</span
+                  >
                 </div>
-
                 <div class="chamado-conteudo">
-                  <h3>Meu computador está sem rede</h3>
+                  <h3>Estação de trabalho sem acesso à rede</h3>
                 </div>
-
-                <div class="chamado-footer"></div>
+                <div class="chamado-footer">
+                  <span class="chamado-status" data-status="andamento"
+                    >Em andamento</span
+                  >
+                  <time datetime="2026-09-17">Hoje, 08:40</time>
+                </div>
               </li>
 
               <li class="chamado-item">
                 <div class="card-header">
-                  <span class="num-ticket">#00001</span>
-                  <span class="prior-ticket">Médio</span>
+                  <span class="num-ticket">#00003</span>
+                  <span class="prior-ticket" data-prioridade="Média"
+                    >Média</span
+                  >
                 </div>
-
                 <div class="chamado-conteudo">
-                  <h3>Impressora parou!</h3>
+                  <h3>Impressora do setor fiscal parou de responder</h3>
                 </div>
-
-                <div class="chamado-footer"></div>
+                <div class="chamado-footer">
+                  <span class="chamado-status" data-status="andamento"
+                    >Em andamento</span
+                  >
+                  <time datetime="2026-09-16">Ontem, 17:05</time>
+                </div>
               </li>
+
               <li class="chamado-item">
                 <div class="card-header">
-                  <span class="num-ticket">#00001</span>
-                  <span class="prior-ticket">Médio</span>
+                  <span class="num-ticket">#00004</span>
+                  <span class="prior-ticket" data-prioridade="Baixa"
+                    >Baixa</span
+                  >
                 </div>
-
                 <div class="chamado-conteudo">
-                  <h3>Impressora parou!</h3>
+                  <h3>Solicitação de troca do mouse</h3>
                 </div>
-
-                <div class="chamado-footer"></div>
+                <div class="chamado-footer">
+                  <span class="chamado-status" data-status="resolvido"
+                    >Resolvido</span
+                  >
+                  <time datetime="2026-09-16">Ontem, 14:22</time>
+                </div>
               </li>
+
               <li class="chamado-item">
                 <div class="card-header">
-                  <span class="num-ticket">#00001</span>
-                  <span class="prior-ticket">Médio</span>
+                  <span class="num-ticket">#00005</span>
+                  <span class="prior-ticket" data-prioridade="Alta">Alta</span>
                 </div>
-
                 <div class="chamado-conteudo">
-                  <h3>Impressora parou!</h3>
+                  <h3>Sistema de ponto fora do ar na filial</h3>
                 </div>
-
-                <div class="chamado-footer"></div>
+                <div class="chamado-footer">
+                  <span class="chamado-status" data-status="aberto"
+                    >Aberto</span
+                  >
+                  <time datetime="2026-09-15">15/09, 11:58</time>
+                </div>
               </li>
+
               <li class="chamado-item">
                 <div class="card-header">
-                  <span class="num-ticket">#00001</span>
-                  <span class="prior-ticket">Médio</span>
+                  <span class="num-ticket">#00006</span>
+                  <span class="prior-ticket" data-prioridade="Baixa"
+                    >Baixa</span
+                  >
                 </div>
-
                 <div class="chamado-conteudo">
-                  <h3>Impressora parou!</h3>
+                  <h3>Instalar pacote Office na máquina nova</h3>
                 </div>
-
-                <div class="chamado-footer"></div>
+                <div class="chamado-footer">
+                  <span class="chamado-status" data-status="resolvido"
+                    >Resolvido</span
+                  >
+                  <time datetime="2026-09-15">15/09, 09:30</time>
+                </div>
               </li>
             </ul>
           </div>
+        </section>
+      </main>
+    </div>
+    <div
+      class="overlay hide"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="titulo-novo-ticket"
+    >
+      <form action="#" method="post" class="chamado-formulario hide">
+        <button
+          type="button"
+          class="modal-close"
+          id="modal-close-btn"
+          aria-label="Fechar"
+        >
+          ×
+        </button>
+
+        <div class="ticket-titulo">
+          <h2 id="titulo-novo-ticket">Novo chamado</h2>
         </div>
-      </section>
-    </main>
+
+        <label for="titulo">Título</label>
+        <input
+          type="text"
+          id="titulo"
+          name="titulo"
+          required
+          autocomplete="off"
+        />
+
+        <label for="descricao">Descrição</label>
+        <textarea
+          name="descricao"
+          id="descricao"
+          rows="10"
+          required
+          placeholder="Descreva o problema: o que aconteceu, quando começou e qual equipamento."
+        ></textarea>
+
+        <label for="prioridade">Prioridade</label>
+        <select name="prioridade" id="prioridade">
+          <option value="Alta">Alta</option>
+          <option value="Média" selected>Média</option>
+          <option value="Baixa">Baixa</option>
+        </select>
+
+        <div class="buttons-nticket">
+          <button type="submit" class="criarBtn">Criar chamado</button>
+          <button type="button" class="cancelBtn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="js/script.js" defer></script>
   </body>
-  <script src="js/script.js"></script>
 </html>

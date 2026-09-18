@@ -133,3 +133,51 @@ formNTicket.addEventListener("submit", async function (event) {
     alert("Erro na conexão. Tente novamente mais tarde.");
   }
 });
+
+btnCancel = document.querySelector(".cancelBtn");
+btnCancel.addEventListener("click", () => {
+  overlay.classList.add("hide");
+  formChamado.classList.add("hide");
+});
+
+//fechar modal com botao x
+const btnFecharModal = document.getElementById("modal-close-btn");
+if (btnFecharModal) {
+  btnFecharModal.addEventListener("click", () => {
+    overlay.classList.add("hide");
+    formChamado.classList.add("hide");
+  });
+}
+
+//fechar com ESC
+document.addEventListener("keydown", (evento) => {
+  if (evento.key === "Escape" && !overlay.classList.contains("hide")) {
+    overlay.classList.add("hide");
+    formChamado.classList.add("hide");
+  }
+});
+
+//tema claro / escuro
+const themeToggle = document.getElementById("theme-toggle");
+if (themeToggle) {
+  const temaSalvo = localStorage.getItem("helpdesk-theme");
+  if (temaSalvo === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeToggle.setAttribute("aria-pressed", "true");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const estaEscuro =
+      document.documentElement.getAttribute("data-theme") === "dark";
+
+    if (estaEscuro) {
+      document.documentElement.removeAttribute("data-theme");
+      localStorage.setItem("helpdesk-theme", "light");
+      themeToggle.setAttribute("aria-pressed", "false");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("helpdesk-theme", "dark");
+      themeToggle.setAttribute("aria-pressed", "true");
+    }
+  });
+}
